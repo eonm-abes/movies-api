@@ -1,3 +1,4 @@
+
 #+ endpoint: http://labo-vm-2.v202.abes.fr:7200/repositories/men-habilitations-v5-inference-legal-base
 
 PREFIX mov: <http://www.abes.fr/vocabularies/movies#>
@@ -9,8 +10,11 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 select * where { 
    
  ?habilitation a mov:Habilitation;
-      rdf:type ?type;
       mov:from [mov:codeEtabid ?_codeEtab];
       mov:start ?start;
-      mov:end ?end
+      mov:end ?end.
+    
+    OPTIONAL {
+        ?habilitation mov:legalBase ?doc
+    }
 }
