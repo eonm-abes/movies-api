@@ -10,7 +10,7 @@ select * where {
    
  ?x a mov:Habilitation;
       rdf:type ?type;
-      mov:from [mov:codeEtabid "INAP"];
+      mov:from [mov:codeEtabid ?_codeEtab];
       mov:start ?start;
       mov:end ?end
 }
