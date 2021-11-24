@@ -8,7 +8,7 @@ PREFIX ppn: <http://www.abes.fr/entities/organizations/ppn/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 select * where { 
    
- ?x a mov:Habilitation;
+ ?habilitation a mov:Habilitation;
       rdf:type ?type;
       mov:from [mov:codeEtabid ?_codeEtab];
       mov:start ?start;
