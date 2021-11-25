@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  movies-api:
+    image: clariah/grlc:v1.3.7
+    container_name: movies-api
+    restart: unless-stopped
+    ports:
+      - 8088:8088
+    volumes:
+      - ./graphdb-data/:/opt/graphdb/home/
+    environment:
+      - GRLC_SERVER_NAME
+      - GRLC_GITHUB_ACCESS_TOKEN
+      - GRLC_SPARQL_ENDPOINT
+    
