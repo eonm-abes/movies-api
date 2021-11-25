@@ -10,11 +10,13 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 select distinct * where { 
    
  ?habilitation a mov:Habilitation;
-      mov:from [mov:codeEtabid ?_codeEtab];
+      mov:from [mov:codeEtabid ?codeEtab];
       mov:start ?start;
       mov:end ?end.
     
     OPTIONAL {
         ?habilitation mov:legalBase ?doc
     }
+   
+    FILTER(?codeEtab=?_codeEtab)
 }
