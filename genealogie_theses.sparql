@@ -1,6 +1,7 @@
 #+ endpoint: http://labo-vm-2.v202.abes.fr:7200/repositories/men-habilitations-v5-inference-legal-base
+#+ endpoint_in_url: False
 #+ summary: Généalogie des établissements thèses
-#+ description: Récupère la généalogie des établissements à partir d'un code établissement  
+#+ description: Récupère la généalogie des établissements à partir d'un code établissement
 #+ tags:
 #+   - thèses
 #+   - généalogie
