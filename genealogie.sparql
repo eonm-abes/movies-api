@@ -1,0 +1,27 @@
+#+ endpoint: http://labo-vm-2.v202.abes.fr:7200/repositories/men-habilitations-v5-inference-legal-base
+PREFIX mov: <http://www.abes.fr/vocabularies/movies#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT DISTINCT ?etab_label  ?code_etab ?start ?end
+    
+WHERE {   
+    ?etab_source mov:codeEtabid ?_codeEtab.
+    
+    ?etab_source (^mov:to/mov:from|^mov:from/mov:to)+ [?x ?etab; skos:prefLabel ?etab_label].
+    ?etat a mov:Existence;
+          mov:from ?etab.
+    
+    ?etab mov:codeEtabid ?code_etab.
+    
+    OPTIONAL {
+        ?delegation a mov:Delegation;
+            mov:from ?etab;
+            mov:start ?start.
+        
+        OPTIONAL {
+            ?delegation mov:end ?end.
+        }
+    }
+    
+    FILTER(LANG(?etab_label) = "fr")
+}
