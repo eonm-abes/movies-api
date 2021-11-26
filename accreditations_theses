@@ -1,0 +1,18 @@
+#+ endpoint: http://labo-vm-2.v202.abes.fr:7200/repositories/men-habilitations-v5-inference-legal-base
+#+ endpoint_in_url: False
+#+ summary: Accréditations des établissemets habilités à délivrer le diplôme doctorat
+#+ description: Récupère l'ensemble des accréditations des établissements habilités à délivrer le diplôme doctorat
+#+ tags:
+#+   - thèses
+#+   - habilitations
+
+PREFIX mov: <http://www.abes.fr/vocabularies/movies#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?doc ?type ?codeEtab ?start ?end where { 
+	?etat_doctoral a [rdfs:subClassOf+ mov:EtatDoctoral; rdfs:label ?type];
+      mov:from [mov:codeEtabid ?codeEtab];
+      mov:legalBase ?doc;
+      mov:start ?start;
+      mov:end ?end.
+}
