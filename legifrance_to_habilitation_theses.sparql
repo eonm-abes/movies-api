@@ -1,7 +1,7 @@
 #+ endpoint: http://labo-vm-2.v202.abes.fr:7200/repositories/men-habilitations-v5-inference-legal-base
 #+ endpoint_in_url: False
-#+ summary:  Accréditations des établissemets habilités à délivrer le diplôme doctorat lié à un identfiant Légifrance
-#+ description: Récupère l'ensemble des accréditations des établissements habilités à délivrer le diplôme doctorat lié à un identifiant Légifrance
+#+ summary:  Accréditations des établissemets habilités à délivrer le diplôme doctorat liées à un identfiant Légifrance
+#+ description: Récupère l'ensemble des accréditations des établissements habilités à délivrer le diplôme doctorat liées à un identifiant Légifrance
 #+ tags:
 #+   - thèses
 #+   - habilitations
