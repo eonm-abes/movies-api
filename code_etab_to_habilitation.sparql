@@ -1,22 +1,16 @@
-
 #+ endpoint: http://labo-vm-2.v202.abes.fr:7200/repositories/men-habilitations-v5-inference-legal-base
 
 PREFIX mov: <http://www.abes.fr/vocabularies/movies#>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX ppn: <http://www.abes.fr/entities/organizations/ppn/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-select distinct * where { 
-   
- ?habilitation a mov:Habilitation;
-      mov:from [mov:codeEtabid ?codeEtab];
-      mov:start ?start;
-      mov:end ?end.
-    
-    OPTIONAL {
-        ?habilitation mov:legalBase ?doc
-    }
-   
-    FILTER(?codeEtab=?_codeEtab)
+
+SELECT DISTINCT * WHERE {
+	?habilitation a mov:Habilitation;
+		mov:from [mov:codeEtabid ?codeEtab];
+		mov:start ?start;
+		mov:end ?end.
+
+	OPTIONAL {
+		?habilitation mov:legalBase ?doc
+	}
+
+	FILTER(?codeEtab="AGPT")
 }
