@@ -1,10 +1,14 @@
 #+ endpoint: http://labo-vm-2.v202.abes.fr:7200/repositories/men-habilitations-v5-inference-legal-base
+#+ summary: Généalogie des établissements thèses
+#+ description: Récupère la généalogie des établissements à partir d'un code établissement  
+#+ tags:
+#+   - thèses
+#+   - généalogie
+
 PREFIX mov: <http://www.abes.fr/vocabularies/movies#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-SELECT DISTINCT ?etab_label  ?code_etab ?start ?end
-    
-WHERE {   
+SELECT DISTINCT ?etab_label  ?code_etab ?start ?end WHERE {   
     ?etab_source mov:codeEtabid ?_codeEtab.
     
     ?etab_source (^mov:to/mov:from|^mov:from/mov:to)+ [?x ?etab; skos:prefLabel ?etab_label].
