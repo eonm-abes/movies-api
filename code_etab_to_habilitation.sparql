@@ -12,5 +12,5 @@ SELECT DISTINCT * WHERE {
 		?habilitation mov:legalBase ?doc
 	}
 
-	FILTER(?codeEtab="AGPT")
+	FILTER(?codeEtab=?_code_etab)
 }
