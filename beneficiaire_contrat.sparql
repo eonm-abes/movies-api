@@ -10,13 +10,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 ASK where {
     #bénéficiaires
-    ?rattachement mov:contrat <http://www.abes.fr/entities/contrat/?_contrat> ;
+    ?rattachement mov:contrat <http://www.abes.fr/entities/contrat/201412> ;
                   mov:beneficiaire ?beneficiaire .
 
     # Héritier vivant ou pas
     # Un établissement peut être son propre héritier
     ?beneficiaire (^mov:from/mov:to)+ ?heritier .
     
-    # L'héritier qui nous intéresse est <http://www.abes.fr/entities/organizations/siren/?_siren> (Université de Lille)
-    filter(?heritier = <http://www.abes.fr/entities/organizations/siren/?_siren>)
+    filter(?heritier = <http://www.abes.fr/entities/organizations/siren/130023583>)
 }
