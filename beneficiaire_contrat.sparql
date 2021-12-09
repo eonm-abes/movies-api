@@ -17,5 +17,5 @@ ASK where {
     ?beneficiaire (^mov:from/mov:to)+ ?heritier .
         
     FILTER(STRENDS(str(?contrat_id), CONCAT("http://www.abes.fr/entities/contrat/", ?_contrat)))
-    FILTER(STRENDS(str(?heritier), CONCAT("http://www.abes.fr/entities/organizations/siren/", ?_siren)))
+    FILTER(STRENDS(str(?heritier), CONCAT("http://www.abes.fr/entities/organizations/siren/", "130023583")))
 }
