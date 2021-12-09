@@ -1,0 +1,22 @@
+#+ endpoint: http://labo-vm-2.v202.abes.fr:7200/repositories/movies_yns_7_final
+#+ endpoint_in_url: False
+#+ summary: Bénéficiaire d'un contrat
+#+ description: Détermine si un établissement bénéficie d'un contrat
+#+ tags:
+#+   - doc élec
+
+PREFIX mov: <http://www.abes.fr/vocabularies/movies#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+ASK where {
+    #bénéficiaires
+    ?rattachement mov:contrat <http://www.abes.fr/entities/contrat/?_contrat> ;
+                  mov:beneficiaire ?beneficiaire .
+
+    # Héritier vivant ou pas
+    # Un établissement peut être son propre héritier
+    ?beneficiaire (^mov:from/mov:to)+ ?heritier .
+    
+    # L'héritier qui nous intéresse est <http://www.abes.fr/entities/organizations/siren/?_siren> (Université de Lille)
+    filter(?heritier = <http://www.abes.fr/entities/organizations/siren/?_siren>)
+}
