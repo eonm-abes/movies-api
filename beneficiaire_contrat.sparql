@@ -10,7 +10,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 ASK where {
     bind(IRI(concat("http://www.abes.fr/entities/organizations/siren/", str(?_siren))) as ?siren)
-    bind(IRI(concat("http://www.abes.fr/entities/contrat/", str(?_id))) as ?contrat_id)
+    bind(IRI(concat("http://www.abes.fr/entities/contrat/", str(?_contrat))) as ?contrat_id)
     #bénéficiaires
     ?rattachement mov:contrat ?contrat_id ;
                   mov:beneficiaire ?beneficiaire .
