@@ -4,13 +4,13 @@
 #+ description: Détermine si un établissement bénéficie d'un contrat
 #+ tags:
 #+   - doc élec
-
 PREFIX mov: <http://www.abes.fr/vocabularies/movies#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 ASK where {
-    bind(IRI(concat("http://www.abes.fr/entities/organizations/siren/", str(?_siren))) as ?siren)
-    bind(IRI(concat("http://www.abes.fr/entities/contrat/", str(?_contrat))) as ?contrat_id)
+    BIND(IRI(concat("http://www.abes.fr/entities/organizations/siren/", str(?_siren))) as ?siren)
+    BIND(IRI(concat("http://www.abes.fr/entities/contrat/", str(?_id))) as ?contrat_id)
+    
     #bénéficiaires
     ?rattachement mov:contrat ?contrat_id ;
                   mov:beneficiaire ?beneficiaire .
@@ -19,7 +19,6 @@ ASK where {
     # Un établissement peut être son propre héritier
     ?beneficiaire (^mov:from/mov:to)+ ?heritier .
     
+    # L'héritier qui nous intéresse est <http://www.abes.fr/entities/organizations/siren/130023583> (Université de Lille)
     filter(?heritier = ?siren)
-    
-
 }
